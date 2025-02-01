@@ -1,3 +1,6 @@
+// Это 6 задания!!!!!!!
+
+
 package Tasks_5;
 
 public class Task1 {
