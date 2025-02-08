@@ -31,3 +31,4 @@ public class Task7 {
         }
     }
 }
+//1

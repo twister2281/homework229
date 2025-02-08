@@ -22,3 +22,4 @@ public class Task9 {
         System.out.println("Значение функции f(a): " + f);
     }
 }
+//1
