@@ -1,6 +1,6 @@
-package Tasks_10.Task4;
+package Task4;
 
-interface Animal {
-    void makeSound();
-    void eat(String foodType);
-}   
+public interface Animal {
+    void makeSound();  // Метод для издания звука животным
+    void eat(String foodType);  // Метод для кормления животного
+}

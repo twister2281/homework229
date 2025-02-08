@@ -1,15 +1,15 @@
-package Tasks_10.Task1;
+package Task1;
 
-public class Main {
+public class Main {  // Главный класс для тестирования
     public static void main(String[] args) {
-        Device device1 = new Laptop("Dell XPS", 1000.0, 12);
-        Device device2 = new MobilePhone("iPhone", 1200.0, "Verizon");
+        Entity[] animals = {  // Массив объектов
+            new Cat("Мурка", 1, "Персидская"),  // Кошка
+            new Dog("Шерлок", 2, 3)  // Собака
+        };
 
-        device1.displayInfo();
-        device1.turnOn();
-        System.out.println();
-
-        device2.displayInfo();
-        device2.turnOn();
+        for (Entity animal : animals) {  // Перебор животных
+            animal.display();  // Отображаем информацию о животном
+            animal.performAction();  // Выполняем действие для каждого животного
+        }
     }
 }

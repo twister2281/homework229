@@ -1,10 +1,11 @@
-package Tasks_10;
+package Task7;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Task1 {
-    
-    // Метод для нахождения суммы элементов массива
+public class ArrayUtils {
+
+    // Метод для вычисления суммы элементов массива
     public static int getSum(int[] array) {
         int sum = 0;
         for (int num : array) {
@@ -13,14 +14,15 @@ public class Task1 {
         return sum;
     }
 
-    // Метод для нахождения среднего арифметического элементов массива
+    // Метод для вычисления среднего арифметического элементов массива
     public static double average(int[] array) {
-        int sum = getSum(array);
-        return (double) sum / array.length;
+        if (array.length == 0) return 0;
+        return (double) getSum(array) / array.length;
     }
 
     // Метод для нахождения максимального значения в массиве
     public static int max_value(int[] array) {
+        if (array.length == 0) return Integer.MIN_VALUE;
         int max = array[0];
         for (int num : array) {
             if (num > max) {
@@ -32,6 +34,7 @@ public class Task1 {
 
     // Метод для нахождения минимального значения в массиве
     public static int min_value(int[] array) {
+        if (array.length == 0) return Integer.MAX_VALUE;
         int min = array[0];
         for (int num : array) {
             if (num < min) {
@@ -41,8 +44,10 @@ public class Task1 {
         return min;
     }
 
-    // Метод для нахождения моды (наиболее часто встречающегося элемента)
+    // Метод для нахождения моды (наиболее часто встречающееся значение) массива
     public static int mode(int[] array) {
+        if (array.length == 0) return Integer.MIN_VALUE;
+
         Map<Integer, Integer> frequencyMap = new HashMap<>();
         for (int num : array) {
             frequencyMap.put(num, frequencyMap.getOrDefault(num, 0) + 1);
@@ -62,24 +67,15 @@ public class Task1 {
     // Метод для сортировки массива по возрастанию
     public static int[] sort_ascending(int[] array) {
         int[] sortedArray = array.clone();
-        Arrays.sort(sortedArray);
-        return sortedArray;
-    }
-
-    public static void main(String[] args) {
-        // Пример использования
-        int[] array = {1, 2, 2, 3, 3, 3, 4};
-
-        System.out.println("Сумма: " + getSum(array));
-        System.out.println("Среднее арифметическое: " + average(array));
-        System.out.println("Максимальное значение: " + max_value(array));
-        System.out.println("Минимальное значение: " + min_value(array));
-        System.out.println("Мода: " + mode(array));
-
-        int[] sortedArray = sort_ascending(array);
-        System.out.print("Отсортированный массив: ");
-        for (int num : sortedArray) {
-            System.out.print(num + " ");
+        for (int i = 0; i < sortedArray.length - 1; i++) {
+            for (int j = i + 1; j < sortedArray.length; j++) {
+                if (sortedArray[i] > sortedArray[j]) {
+                    int temp = sortedArray[i];
+                    sortedArray[i] = sortedArray[j];
+                    sortedArray[j] = temp;
+                }
+            }
         }
+        return sortedArray;
     }
 }

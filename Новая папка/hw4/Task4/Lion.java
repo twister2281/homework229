@@ -1,15 +1,18 @@
-package Tasks_10.Task4;
+package Task4;
 
-class Lion implements Animal {
+public class Lion implements Animal {
+    @Override
     public void makeSound() {
-        System.out.println("Lion roars!");
+        System.out.println("Рычание льва: Ррррр!");
     }
 
+    @Override
     public void eat(String foodType) {
-        System.out.println("Lion eats " + foodType);
+        System.out.println("Лев ест " + foodType);
     }
 
+    // Специфичный метод для льва
     public void hunt() {
-        System.out.println("Lion is hunting!");
+        System.out.println("Лев идет на охоту...");
     }
 }

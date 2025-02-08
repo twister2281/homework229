@@ -1,15 +1,18 @@
-package Tasks_10.Task4;
+package Task4;
 
-class Monkey implements Animal {
+public class Monkey implements Animal {
+    @Override
     public void makeSound() {
-        System.out.println("Monkey screeches!");
+        System.out.println("Крик обезьяны: Ууууу-у-у!");
     }
 
+    @Override
     public void eat(String foodType) {
-        System.out.println("Monkey eats " + foodType);
+        System.out.println("Обезьяна ест " + foodType);
     }
 
+    // Специфичный метод для обезьяны
     public void swing() {
-        System.out.println("Monkey swings from the trees!");
+        System.out.println("Обезьяна качается на ветке!");
     }
 }
