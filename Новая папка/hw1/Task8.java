@@ -4,28 +4,22 @@ public class Task8 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Запрашиваем размер массива n
-        System.out.println("Введите размер массива n:");
+        // Вводим количество элементов в массиве
         int n = scanner.nextInt();
+        int[] arr = new int[n];
 
-        // Проверка, что n — положительное число
-        if (n <= 0) {
-            System.out.println("Ошибка: n должно быть натуральным числом.");
-            return;
-        }
-
-        // Создаём массив целых чисел
-        int[] array = new int[n];
-
-        // Заполняем массив с чередующимися положительными и отрицательными нечетными числами
+        // Заполняем массив чередующимися числами
         for (int i = 0; i < n; i++) {
-            array[i] = (i % 2 == 0) ? (i * 2 + 1) : -(i * 2 + 1);
+            if (i % 2 == 0) {
+                arr[i] = 1 + 2 * (i / 2); // Четные индексы: 1, 5, 9, ...
+            } else {
+                arr[i] = -3 - 2 * (i / 2); // Нечетные индексы: -3, -7, -11, ...
+            }
         }
 
-        // Выводим полученный массив
-        System.out.println("Полученный массив:");
-        for (int value : array) {
-            System.out.print(value + " ");
+        // Выводим массив
+        for (int num : arr) {
+            System.out.print(num + " ");
         }
     }
 }

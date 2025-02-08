@@ -4,41 +4,30 @@ public class Task7 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Запрашиваем натуральное число n, которое должно быть от 1 до 100
-        System.out.println("Введите натуральное число n (n <= 100):");
+        // Вводим число n
         int n = scanner.nextInt();
 
-        // Проверка, чтобы n было в пределах от 1 до 100
-        if (n <= 0 || n > 100) {
-            System.out.println("Ошибка: n должно быть натуральным числом от 1 до 100.");
-            return;
-        }
+        // Считаем количество цифр в числе n
+        int numDigits = Integer.toString(n).length();
+        System.out.println("a) Количество цифр в числе n: " + numDigits);
 
-        // Подсчитываем количество цифр в числе n
-        int digitCount = String.valueOf(n).length();
-
-        // Суммируем цифры числа n
-        int sumOfDigits = 0;
+        // Считаем сумму цифр числа n
+        int sumDigits = 0;
         int temp = n;
         while (temp > 0) {
-            sumOfDigits += temp % 10;
+            sumDigits += temp % 10;
             temp /= 10;
         }
+        System.out.println("b) Сумма цифр числа n: " + sumDigits);
 
-        // Получаем первую цифру числа
-        int firstDigit = Integer.parseInt(String.valueOf(String.valueOf(n).charAt(0)));
+        // Первая цифра числа n
+        int firstDigit = Integer.toString(n).charAt(0) - '0';
+        System.out.println("c) Первая цифра числа n: " + firstDigit);
 
-        // Получаем предпоследнюю цифру (если есть)
-        int penultimateDigit = (n >= 10) ? (n / 10) % 10 : -1;
-
-        // Выводим результаты
-        System.out.println("a) Количество цифр: " + digitCount);
-        System.out.println("b) Сумма цифр: " + sumOfDigits);
-        System.out.println("c) Первая цифра: " + firstDigit);
-        if (penultimateDigit != -1) {
-            System.out.println("d) Предпоследняя цифра: " + penultimateDigit);
-        } else {
-            System.out.println("d) Число меньше 10, предпоследней цифры нет.");
+        // Если n >= 10, находим предпоследнюю цифру
+        if (n >= 10) {
+            int secondLastDigit = (n / 10) % 10;
+            System.out.println("d) Предпоследняя цифра числа n: " + secondLastDigit);
         }
     }
 }

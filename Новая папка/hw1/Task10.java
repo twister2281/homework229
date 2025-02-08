@@ -4,16 +4,20 @@ public class Task10 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Запрашиваем число n
+        // Вводим возраст
         int n = scanner.nextInt();
 
-        // Определяем правильную форму слова "год"
+        // Определяем, какое слово использовать для склонения
+        String result;
         if (n % 10 == 1 && n % 100 != 11) {
-            System.out.println(n + " год");
-        } else if (n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 10 || n % 100 >= 20)) {
-            System.out.println(n + " года");
+            result = n + " год";
+        } else if ((n % 10 >= 2 && n % 10 <= 4) && (n % 100 < 10 || n % 100 >= 20)) {
+            result = n + " года";
         } else {
-            System.out.println(n + " лет");
+            result = n + " лет";
         }
+
+        // Выводим результат
+        System.out.println(result);
     }
 }

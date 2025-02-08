@@ -2,44 +2,31 @@ import java.util.Scanner;
 
 public class Task2 {
     public static void main(String[] args) {
-        // Создаём объект Scanner для получения ввода от пользователя
         Scanner scanner = new Scanner(System.in);
 
-        // Запрашиваем количество чисел в последовательности
-        System.out.println("Введите длину последовательности:");
+        // Вводим количество чисел
         int n = scanner.nextInt();
-
-        // Проверка, что последовательность состоит хотя бы из 3 чисел
-        if (n < 3) {
-            System.out.println("Последовательность должна быть длиной не менее 3.");
-            return;
-        }
-
-        // Массив для хранения чисел
-        int[] numbers = new int[n];
-
-        // Запрашиваем числа последовательности
-        System.out.println("Введите последовательность чисел:");
+        int[] arr = new int[n];
+        
+        // Вводим последовательность чисел
         for (int i = 0; i < n; i++) {
-            numbers[i] = scanner.nextInt();
+            arr[i] = scanner.nextInt();
         }
 
-        // Переменная для подсчёта чётных локальных максимумов
-        int evenLocalMaxCount = 0;
+        int count = 0;
 
-        // Проверяем локальные максимумы в последовательности
+        // Ищем локальные максимумы
         for (int i = 1; i < n - 1; i++) {
-            // Условие для локального максимума (больше соседних и чётное)
-            if (numbers[i] > numbers[i - 1] && numbers[i] > numbers[i + 1] && numbers[i] % 2 == 0) {
-                evenLocalMaxCount++;
+            if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1] && arr[i] % 2 == 0) {
+                count++;
             }
         }
 
-        // Выводим результат в зависимости от количества чётных локальных максимумов
-        if (evenLocalMaxCount == 2) {
-            System.out.println("Ровно два чётных локальных максимума существуют.");
+        // Проверка, что ровно два четких локальных максимума
+        if (count == 2) {
+            System.out.println("Есть два четких локальных максимума");
         } else {
-            System.out.println("Чётных локальных максимумов не ровно два.");
+            System.out.println("Нету двух четких локальных максимумов");
         }
     }
 }
